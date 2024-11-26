@@ -21,9 +21,11 @@ This Flutter application is designed to help farmers manage their crop details a
 ## Screenshots
 
 # Farmer Information Entry:
-![scrcpy_QLGxC6RzWs](https://github.com/user-attachments/assets/2e034828-8fef-4283-83d2-07afeeec8090)
+<img src="https://github.com/user-attachments/assets/2e034828-8fef-4283-83d2-07afeeec8090" alt="Farmer Information Entry" width="300" height="700">
+
 # Crop Details Entry:
-![scrcpy_ialm4B9ec1](https://github.com/user-attachments/assets/f996cc05-14ba-42ad-8081-2e7973081f30)
+<img src="https://github.com/user-attachments/assets/f996cc05-14ba-42ad-8081-2e7973081f30" alt="Crop Details Entry" width="300" height="700">
+
 # Invoice Page:
 ![chrome_UdCl6n9cp3](https://github.com/user-attachments/assets/499a6280-edfd-4c51-8c0d-970d9c17e882)
 
