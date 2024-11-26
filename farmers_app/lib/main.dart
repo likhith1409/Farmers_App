@@ -31,7 +31,8 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-
+    
+    // Delayed navigation to the FarmerDetails screen after 5 seconds
     Future.delayed(const Duration(seconds: 5), () {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (context) => const FarmerDetails()),
@@ -48,7 +49,7 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Image.asset(
-              'assets/logo1.png',
+              'assets/logo1.png', // Displaying the logo image
               width: 250.0,
               height: 350.0,
             ),
