@@ -5,9 +5,15 @@ import 'invoice_generator.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+/// Represents the home section of the app where farmers can view and manage their crop details.
+///
 class HomeSection extends flutter.StatefulWidget {
   final int farmerId;
 
+  /// Constructor for HomeSection.
+  ///
+  /// Parameters:
+  /// - farmerId: The ID of the farmer whose details are being displayed.
   const HomeSection({super.key, required this.farmerId});
 
   @override
@@ -26,6 +32,7 @@ class _HomeSectionState extends flutter.State<HomeSection> {
     fetchDroneUsage();
   }
 
+  /// Fetches the crop details for the farmer from the server.
   Future<void> fetchCropDetails() async {
     final response = await http.get(
       Uri.parse('http://192.168.1.4:5000/get_crops/${widget.farmerId}'),
@@ -38,6 +45,7 @@ class _HomeSectionState extends flutter.State<HomeSection> {
     }
   }
 
+  /// Fetches the drone usage details for the farmer from the server.
   Future<void> fetchDroneUsage() async {
     final response = await http.get(
       Uri.parse('http://192.168.1.4:5000/get_drone_usage/${widget.farmerId}'),
@@ -52,6 +60,10 @@ class _HomeSectionState extends flutter.State<HomeSection> {
     }
   }
 
+  /// Removes the crop details at the specified index.
+  ///
+  /// Parameters:
+  /// - index: The index of the crop details to be removed.
   void removeCropDetails(int index) {
     setState(() {
       cropDetailsList.removeAt(index);
@@ -83,6 +95,8 @@ class _HomeSectionState extends flutter.State<HomeSection> {
               ],
             ),
             const flutter.SizedBox(height: 50),
+
+            // Add Crop Details section
             const flutter.Text(
               'Add Crop Details:',
               style: flutter.TextStyle(
@@ -172,6 +186,8 @@ class _HomeSectionState extends flutter.State<HomeSection> {
               ),
             ),
             const flutter.SizedBox(height: 50),
+
+            // Drone Usage Caliculation Section
             const flutter.Text(
               'Drone Usage:',
               style: flutter.TextStyle(
@@ -199,7 +215,7 @@ class _HomeSectionState extends flutter.State<HomeSection> {
                   mainAxisAlignment: flutter.MainAxisAlignment.center,
                   children: [
                     const flutter.Text(
-                      '1 Acre = ₹200',
+                      '1 Acre = ₹200', // Added Default Value for Caliculation
                       style: flutter.TextStyle(
                         fontSize: 20,
                         fontWeight: flutter.FontWeight.bold,
