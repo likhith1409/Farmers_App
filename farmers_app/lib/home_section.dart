@@ -7,6 +7,9 @@ import 'dart:convert';
 
 /// Represents the home section of the app where farmers can view and manage their crop details.
 ///
+/// This widget fetches and displays crop details and drone usage information for a given farmer.
+/// It also provides options to add new crop details, view detailed crop information, and generate invoices.
+
 class HomeSection extends flutter.StatefulWidget {
   final int farmerId;
 
