@@ -1,9 +1,20 @@
 import 'package:flutter/material.dart';
 import 'crop_details.dart';
 
+/// Represents the screen where farmers can add crop details.
+///
+/// This widget allows farmers to select a crop from a list of available crops.
+/// If the crop is already added, it is marked as 'Added' and cannot be selected again.
+/// Upon selecting a crop, the user is navigated to the CropDetails screen to input
+/// additional details for the selected crop.
+///
 class AddCropDetails extends StatelessWidget {
   final int farmerId;
 
+  /// Constructor for AddCropDetails.
+  ///
+  /// Parameters:
+  /// - farmerId: The ID of the farmer adding the crop details.
   const AddCropDetails({super.key, required this.farmerId});
 
   @override
@@ -46,6 +57,13 @@ class AddCropDetails extends StatelessWidget {
     );
   }
 
+  /// Builds a crop item widget with an image and name.
+  ///
+  /// Parameters:
+  /// - context: The BuildContext of the current widget tree.
+  /// - cropName: The name of the crop.
+  /// - imagePath: The path to the image asset for the crop.
+  /// - cropDetailsList: The list of crop details that have already been added.
   Widget _buildCropItem(BuildContext context, String cropName, String imagePath, List<Map<String, dynamic>> cropDetailsList) {
     final isAdded = cropDetailsList.any((crop) => crop['crop_name'] == cropName);
 
@@ -85,6 +103,7 @@ class AddCropDetails extends StatelessWidget {
                 ],
               ),
             ),
+            // If the crop is already added, show a 'Added' overlay
             if (isAdded)
               Container(
                 color: Colors.black.withOpacity(0.5),
