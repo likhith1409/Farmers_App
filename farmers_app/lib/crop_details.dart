@@ -3,6 +3,12 @@ import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:http/http.dart' as http;
 
+/// Represents the screen where farmers can view and edit crop details.
+///
+/// This widget allows farmers to input or update details such as total acreage,
+/// drone usage acreage, products used, and quantity used for a specific crop.
+/// It also provides an option to remove the crop if it is editable.
+
 class CropDetails extends StatefulWidget {
   final String cropName;
   final String imagePath;
@@ -10,6 +16,14 @@ class CropDetails extends StatefulWidget {
   final int farmerId;
   final int? cropId; 
 
+  /// Constructor for CropDetails.
+  ///
+  /// Parameters:
+  /// - cropName: The name of the crop.
+  /// - imagePath: The path to the image asset for the crop.
+  /// - isEditable: Whether the crop details can be edited.
+  /// - farmerId: The ID of the farmer.
+  /// - cropId: The ID of the crop, if it already exists.
   const CropDetails({
     super.key,
     required this.cropName,
@@ -39,6 +53,7 @@ class _CropDetailsState extends State<CropDetails> {
 
   Future<void> fetchCropDetails() async {
     final response = await http.get(
+      // Fetch crop details from the server
       Uri.parse('http://192.168.1.4:5000/get_crop/${widget.cropId}'),
     );
 
@@ -130,6 +145,7 @@ class _CropDetailsState extends State<CropDetails> {
                       if (widget.isEditable)
                         ElevatedButton(
                           onPressed: () async {
+                            // remove crop from the server
                             final response = await http.delete(
                               Uri.parse('http://192.168.1.4:5000/remove_crop/${widget.cropId}'),
                             );
@@ -169,6 +185,7 @@ class _CropDetailsState extends State<CropDetails> {
                       else
                         ElevatedButton(
                           onPressed: () async {
+                            // Added crop to the server
                             final response = await http.post(
                               Uri.parse('http://192.168.1.4:5000/add_crop'),
                               headers: <String, String>{
@@ -230,6 +247,13 @@ class _CropDetailsState extends State<CropDetails> {
     );
   }
 
+  /// Builds an input field with a label and hint text.
+  ///
+  /// Parameters:
+  /// - label: The label text for the input field.
+  /// - hintText: The hint text for the input field.
+  /// - keyboardType: The type of keyboard to display.
+  /// - controller: The TextEditingController for the input field.
   Widget _buildInputField({
     required String label,
     required String hintText,
@@ -259,6 +283,11 @@ class _CropDetailsState extends State<CropDetails> {
     );
   }
 
+  /// Builds a checkbox field with a label and a list of items.
+  ///
+  /// Parameters:
+  /// - label: The label text for the checkbox field.
+  /// - items: The list of items to display as checkboxes.
   Widget _buildCheckboxField({
     required String label,
     required List<String> items,
