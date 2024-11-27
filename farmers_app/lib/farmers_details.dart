@@ -3,6 +3,13 @@ import 'home_section.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+/// Represents the screen where farmers can enter and submit their details.
+///
+/// This widget allows farmers to input their name, mobile number, and address,
+/// and then submit this information to the server for registration. Upon successful
+/// registration, the user is navigated to the HomeSection screen.
+///
+
 class FarmerDetails extends StatefulWidget {
   const FarmerDetails({super.key});
 
@@ -53,6 +60,7 @@ class _FarmerDetailsState extends State<FarmerDetails> {
                   final mobileNumber = _mobileNumberController.text;
                   final address = _addressController.text;
 
+                  // Send the farmer details to the server for registration
                   final response = await http.post(
                     Uri.parse('http://192.168.1.4:5000/register_farmer'),
                     headers: <String, String>{
@@ -125,6 +133,12 @@ class _FarmerDetailsState extends State<FarmerDetails> {
     );
   }
 
+  /// Builds a labeled input field with a hint text and optional numeric keyboard.
+  ///
+  /// Parameters:
+  /// - label: The label text for the input field.
+  /// - isNumeric: Whether the input field should use a numeric keyboard.
+  /// - controller: The TextEditingController for the input field.
   Widget _buildLabeledInputField(String label, bool isNumeric, TextEditingController controller) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
