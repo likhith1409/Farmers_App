@@ -2,7 +2,8 @@ from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://likhithreddy:rylegand123@localhost/farmers_db'
+#change the Username and Password of your Mysql database and also database_name
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://username:password@localhost/database_name'
 db = SQLAlchemy(app)
 
 class Farmer(db.Model):
