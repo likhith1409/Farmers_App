@@ -110,4 +110,5 @@ def get_farmer(farmer_id):
         return jsonify({'message': 'Farmer not found'}), 404
 
 if __name__ == '__main__':
-    app.run(debug=True, host='192.168.1.4')
+    # Add your ip_address
+    app.run(debug=True, host='ip_address')
