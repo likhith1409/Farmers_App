@@ -1,9 +1,5 @@
 # Flutter App: Farmer Crop Management and Invoice Generator
 
-Download Complete Flutter Project: https://drive.google.com/file/d/1cIz2cttpDXuybzpu8gLvEWicXy5b7Bd8/view?usp=sharing
-
-Figma Design: https://www.figma.com/design/DS4o9XmGwiR6LYWkt45BY4/Farmers-App?node-id=0-1&t=RJ9xo0pv1FqodMdA-1
-
 ## Overview
 
 This Flutter application is designed to help farmers manage their crop details and calculate the total cost based on drone usage for applying Parijat products. The app allows users to input farmer details, track multiple crops, and generate a PDF invoice with all the necessary details.
